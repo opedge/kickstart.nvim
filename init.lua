@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -160,6 +160,12 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Center screen after go down/up
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Go down and center', noremap = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Go up and center', noremap = true })
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Find next and center', noremap = true })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Find prev and center', noremap = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -864,6 +870,10 @@ require('lazy').setup({
     end,
   },
 
+  -- VimBeGood by ThePrimeagen
+  {
+    'opedge/vim-be-good',
+  },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
