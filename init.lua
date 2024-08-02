@@ -573,21 +573,29 @@ require('lazy').setup({
         -- clangd = {},
         gopls = {},
         pylsp = {
-          plugins = {
-            -- formatter options
-            black = { enabled = true },
-            autopep8 = { enabled = false },
-            yapf = { enabled = false },
-            -- linter options
-            pylint = { enabled = true, executable = 'pylint' },
-            pyflakes = { enabled = false },
-            pycodestyle = { enabled = false },
-            -- type checker
-            pylsp_mypy = { enabled = true },
-            -- auto-completion options
-            jedi_completion = { fuzzy = true },
-            -- import sorting
-            pyls_isort = { enabled = true },
+          settings = {
+            pylsp = {
+              plugins = {
+                ruff = {
+                  enabled = true,
+                  format = { 'I' },
+                },
+                -- formatter options
+                black = { enabled = false },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                -- linter options
+                pylint = { enabled = false },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                -- type checker
+                pylsp_mypy = { enabled = true, live_mode = true, strict = false, report_progress = true },
+                -- auto-completion options
+                jedi_completion = { fuzzy = true },
+                -- import sorting
+                isort = { enabled = false },
+              },
+            },
           },
         },
         -- pyright = {},
@@ -934,6 +942,8 @@ require('lazy').setup({
     },
   },
 })
+
+vim.g.python3_host_prog = '~/.pyenv/versions/nvim/bin/python'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
