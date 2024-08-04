@@ -575,6 +575,7 @@ require('lazy').setup({
         pylsp = {
           settings = {
             pylsp = {
+              -- don't forget that you need to manually install :PylspInstall pylsp-mypy python-lsp-ruff
               plugins = {
                 ruff = {
                   enabled = true,
