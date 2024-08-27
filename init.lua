@@ -595,7 +595,7 @@ require('lazy').setup({
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
                 -- type checker
-                pylsp_mypy = { enabled = true, live_mode = true, strict = false, report_progress = true },
+                pylsp_mypy = { enabled = true, live_mode = false, strict = false },
                 -- auto-completion options
                 jedi_completion = { fuzzy = true },
                 -- import sorting
